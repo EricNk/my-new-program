@@ -1,11 +1,12 @@
-node {  
+node { 
+def mnvhome = tool name: 'maven-home', type: 'maven'
     stage('Git-Checkout') { 
-        echo "Iam in the build step"
+        git branch: 'main', credentialsId: 'git-access-token', url: 'https://github.com/EricNk/my-new-program.git'
     }
     stage('Clean-Compile') { 
-        echo "Iam in the test step" 
+        sh "${mnvhome}/bin/mvn clean compile" 
     }
     stage('Package') { 
-        echo "Iam in the deploy step" 
+        sh "${mnvhome}/bin/mvn package" 
     }
 }
