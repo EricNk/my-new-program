@@ -1,14 +1,11 @@
 node {  
-    stage('Build') { 
+    stage('Git-Checkout') { 
         echo "Iam in the build step"
     }
-    stage('Test') { 
+    stage('Clean-Compile') { 
         echo "Iam in the test step" 
     }
-    stage('Deploy') { 
+    stage('Package') { 
         echo "Iam in the deploy step" 
-    }
-    stage('Archive') { 
-        echo "Iam in the archive step" 
     }
 }
