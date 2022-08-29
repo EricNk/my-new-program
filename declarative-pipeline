@@ -1,0 +1,23 @@
+pipeline {
+    agent any 
+	tools {
+  maven 'maven-home'
+}
+    stages {
+        stage('Git-Checktout') { 
+            steps {
+                git branch: 'main', credentialsId: 'git-access-token', url: 'https://github.com/EricNk/my-new-program.git'
+            }
+        }
+        stage('Clean-Compile') { 
+            steps {
+                sh "mvn clean compile"  
+            }
+        }
+        stage('Package') { 
+            steps {
+                sh "mvn package" 
+            }
+        }
+    }
+}
