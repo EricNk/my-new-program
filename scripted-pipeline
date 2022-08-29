@@ -11,7 +11,7 @@ def mnvhome = tool name: 'maven-home', type: 'maven'
     }
     stage('Tomcat-Deployment') { 
         sshagent(['ec2-user']) {
-		sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/scripted-pipeline1/target/my-new-program.war ec2-user@172.31.16.226:/tomcat/webapps'
+		sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/scripted-pipeline1/target/my-new-program.war ec2-user@172.31.16.226:/home/ec2-user/tomcat/webapps'
 }
     }
 }
